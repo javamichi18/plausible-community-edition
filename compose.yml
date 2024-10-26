@@ -52,7 +52,6 @@ services:
       - "traefik.http.routers.plausible.tls.certresolver=myresolver"
       - "traefik.http.routers.plausible.tls.domains[0].main=${TRAEFIK_HOSTNAME}"
       - "traefik.http.routers.plausible.tls.domains[0].sans=plausible.${TRAEFIK_HOSTNAME}"
-      - "traefik.http.routers.plausible.tls.domains[0].sans=plausible.${TRAEFIK_HOSTNAME}"
     restart: unless-stopped
     command: sh -c "/entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run"
     depends_on:
